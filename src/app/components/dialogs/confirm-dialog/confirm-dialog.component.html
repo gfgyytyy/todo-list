@@ -1,0 +1,13 @@
+<h1 mat-dialog-title fxLayoutAlign="space-between">
+  {{title}}
+  <mat-icon class="action-icon" (click)="onDismiss()">close</mat-icon>
+</h1>
+
+<div mat-dialog-content>
+  <p>{{message}}</p>
+</div>
+
+<div mat-dialog-actions fxLayoutAlign="center center">
+  <button mat-raised-button class="action-button dismiss" (click)="onDismiss()">cancel</button>
+  <button mat-raised-button class="action-button confirm" (click)="onConfirm()" color="primary">confirm</button>
+</div>

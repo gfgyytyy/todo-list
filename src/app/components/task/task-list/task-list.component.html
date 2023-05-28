@@ -1,0 +1,33 @@
+<div
+  fxLayout="row"
+  fxLayoutAlign="center center"
+>
+  <mat-form-field
+    fxLayout="column"
+    fxFlex
+    appearance="outline"
+    style="margin-bottom: -1.25em"
+  >
+    <mat-label>Search</mat-label>
+    <input matInput>
+  </mat-form-field>
+</div>
+<div 
+  fxLayout="row wrap"
+>
+  <div
+    class="task-list__cell"
+    fxLayout="column"
+    fxFlex.gt-sm="calc(16.67%)"
+    fxFlex.sm="calc(25%)"
+    fxFlex="calc(100%)"
+    *ngFor="let task of tasks"
+  >
+    <app-task-card
+      [task]="task"
+      (edit)="onEdit($event)"
+      (delete)="onDelete($event)"
+    ></app-task-card>
+  </div>
+</div>
+

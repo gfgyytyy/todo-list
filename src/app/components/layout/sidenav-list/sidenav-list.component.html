@@ -1,0 +1,10 @@
+<mat-nav-list>
+  <a
+    *ngFor="let route of routes"
+    mat-list-item
+    [activated]="router.url === route.link"
+    [routerLink]="[route.link]"
+  >
+    {{route.name}}
+  </a>
+</mat-nav-list>

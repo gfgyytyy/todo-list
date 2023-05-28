@@ -1,0 +1,37 @@
+<mat-card
+  class="task-card__card"
+  [ngStyle]="{
+    'background-color': hourUntilDue <= 2 ? 'rgba(255,11,11,0.3)' : '',
+  }"
+  *ngIf="task !== undefined"
+>
+  <mat-card-title>
+    {{task.title}}
+  </mat-card-title>
+  <mat-card-content>
+    <p>name: {{task.name}}</p>
+    <p>created at: {{task.createdAt | localDate}}</p>
+    <p>description: {{task.description}}</p>
+    <p>progress:</p>
+    <mat-progress-bar
+      [value]="task.progress"
+    />
+    
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button
+      mat-icon-button
+      color="primary"
+      (click)="onEdit(task)"
+    >
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="warn"
+      (click)="onDelete(task)"
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
