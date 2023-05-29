@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core'
 @Component({
   selector: 'app-table-skeleton',
   templateUrl: './table-skeleton.component.html',
-  styleUrls: ['./table-skeleton.component.css', '../../../styles/table.css'],
+  styleUrls: ['./table-skeleton.component.css'],
 })
 export class TableSkeletonComponent {
   @Input() rowCount = 0

@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common'
 import { TaskCardComponent } from './task/task-card/task-card.component'
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { TaskListComponent } from './task/task-list/task-list.component'
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { PipesModule } from '../shared/pipes/pipes.module';
 import { TaskFormComponent } from './task/task-form/task-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,7 +34,6 @@ import { TaskFormDialogComponent } from './dialogs/task-form-dialog/task-form-di
     CommonModule,
     PipesModule,
     CustomMaterialModule,
-    FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
     CustomMaterialModule,

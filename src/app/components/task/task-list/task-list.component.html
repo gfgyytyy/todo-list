@@ -1,26 +1,19 @@
 <div
-  fxLayout="row"
-  fxLayoutAlign="center center"
+  class="grid grid-cols-1"
 >
   <mat-form-field
-    fxLayout="column"
-    fxFlex
     appearance="outline"
-    style="margin-bottom: -1.25em"
+    class="-mb-0.5"
   >
     <mat-label>Search</mat-label>
     <input matInput>
   </mat-form-field>
 </div>
 <div 
-  fxLayout="row wrap"
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-3"
 >
   <div
     class="task-list__cell"
-    fxLayout="column"
-    fxFlex.gt-sm="calc(16.67%)"
-    fxFlex.sm="calc(25%)"
-    fxFlex="calc(100%)"
     *ngFor="let task of tasks"
   >
     <app-task-card

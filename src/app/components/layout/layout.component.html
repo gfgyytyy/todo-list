@@ -7,11 +7,9 @@
     <app-sidenav-list />
   </mat-sidenav>
   <!-- Main content -->
-  <mat-sidenav-content fxLayout="column">
+  <mat-sidenav-content>
     <mat-toolbar
       class="app__header"
-      fxLayout="row"
-      fxLayoutAlign="left center"
       color="primary"
     >
       <button 
@@ -29,11 +27,6 @@
     </div>
     <div class="main__container">
       <router-outlet></router-outlet>
-    </div>
-    <div 
-      class="app__footer"
-    >
-      footer
     </div>
     <div
       class="app__quick-actions"

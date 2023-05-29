@@ -6,7 +6,7 @@ $headerHeight: 54px;
 $footerHeight: 20px;
 
 .main__container {
-  height: calc(93vh - $footerHeight - $headerHeight);
+  height: calc(96vh - $headerHeight);
   overflow: auto;
   padding: 16px;
 }
