@@ -36,7 +36,6 @@ import { TaskFormDialogComponent } from './dialogs/task-form-dialog/task-form-di
     CustomMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    CustomMaterialModule,
     RouterModule,
   ],
 })

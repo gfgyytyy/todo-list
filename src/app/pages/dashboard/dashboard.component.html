@@ -1,3 +1,17 @@
-<div>
-  <app-task-list></app-task-list>
+<div
+  class="grid grid-cols-1 gap-8"
+>
+  <div 
+    *ngFor="let group of taskGroup"
+    class="grid grid-cols-1 gap-6"
+  >
+    <ng-container *ngIf="group.tasks.length > 0">
+      <div>
+        <span class="text-sm text-gray-400">{{group.name}}</span>
+        <mat-divider></mat-divider>
+      </div>
+      
+      <app-task-list [tasks]="group.tasks"></app-task-list>
+    </ng-container>
+  </div>
 </div>

@@ -28,6 +28,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTableModule } from '@angular/material/table'
 import { MatSortModule } from '@angular/material/sort'
+import { MatSliderModule } from '@angular/material/slider'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { DragDropModule } from '@angular/cdk/drag-drop'
@@ -59,6 +60,7 @@ export const dateFormats = {
     MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
     MatExpansionModule, DragDropModule, MatSortModule,
     MatGridListModule, MatFormFieldModule, FormsModule, ReactiveFormsModule,
+    MatSliderModule,
   ],
   exports: [
     CommonModule,
@@ -72,7 +74,8 @@ export const dateFormats = {
     MatExpansionModule, DragDropModule, MatSortModule,
     TableSkeletonComponent, BarSkeletonComponent,
     SnackBarComponent,
-    MatGridListModule, 
+    MatGridListModule,
+    MatSliderModule,
   ],
   providers: [
     {

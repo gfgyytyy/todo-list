@@ -1,7 +1,7 @@
 <mat-card
   class="task-card__card"
   [ngStyle]="{
-    'background-color': hourUntilDue <= 2 ? 'rgba(255,11,11,0.3)' : ''
+    'background-color': hourUntilDue <= 24 ? 'rgba(255,11,11,0.3)' : ''
   }"
   *ngIf="task !== undefined"
 >
@@ -16,6 +16,7 @@
     <mat-progress-bar
       [value]="task.progress"
     />
+    <p>due at: {{task.dueDate | localDate: 'YYYY-MM-DD'}}</p>
     
   </mat-card-content>
   <mat-card-actions align="end">

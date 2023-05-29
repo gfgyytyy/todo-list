@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskModel } from 'src/app/core/types/task/task.dto';
 import { TaskFormDialogComponent } from '../../dialogs/task-form-dialog/task-form-dialog.component';
@@ -13,16 +13,12 @@ import { DialogService } from 'src/app/core/services/dialog/dialog.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent {
-  tasks: TaskModel[] = []
+  @Input() tasks: TaskModel[] = []
   constructor (
     private notificationService: NotificationService,
     private taskService: TaskService,
     private dialogService: DialogService,
   ) {
-    this.tasks = taskService.tasks
-    this.taskService.tasks$.subscribe(tasks => {
-      this.tasks = tasks
-    })
   }
 
   onEdit (value: TaskModel) {
@@ -30,7 +26,7 @@ export class TaskListComponent {
       .openTaskForm(value)
       .subscribe({
         next: (task) =>{
-          if(task) this.taskService.updateTask(value.key, task)
+          if(task) this.taskService.updateTask(value, task)
         },
         error: (error) => {
           this.notificationService.openErrorSnack(error)
@@ -47,8 +43,13 @@ export class TaskListComponent {
       .pipe(
         filter(e => e)
       )
-      .subscribe(() => {
-        this.taskService.deleteTask(value.key)
+      .subscribe({
+        next: () => {
+          this.taskService.deleteTask(value.key)
+        },
+        error: (error) => {
+          this.notificationService.openErrorSnack(error)
+        }
       })
   }
 }

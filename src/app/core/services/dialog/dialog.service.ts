@@ -26,7 +26,8 @@ export class DialogService {
         data: {
           title,
           message,
-        }
+        },
+        disableClose: true,
       }
     )
       .afterClosed()

@@ -35,21 +35,30 @@ export class TaskService {
     const newTask: TaskModel = {
       ...value,
       key,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     }
     const newTasks = [...this.tasks, newTask]
     this.storeTasks(newTasks)
   }
 
-  updateTask (key: string, value: TaskModel) {
+  updateTask (
+    oldValue: TaskModel,
+    value: TaskModel
+  ) {
+    const { key } = oldValue
     const newTasks = this.tasks
+    const updated = Object.assign(oldValue, value)
+  
+
     const oldTaskIndex = newTasks.findIndex(e => e.key === key)
     if(oldTaskIndex === -1){
       this.createTask(value, key)
       return
     }
     newTasks[oldTaskIndex] = {
-      ...value,
-      key
+      ...updated,
+      updatedAt: new Date().toISOString(),
     }
     this.storeTasks(newTasks)
   }

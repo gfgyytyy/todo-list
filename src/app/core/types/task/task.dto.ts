@@ -4,8 +4,7 @@ export interface TaskModel {
   progress: number
   title: string
   description: string
-  compeletd: boolean
-  createdAt: Date
-  updatedAt: Date
-  dueDate?: Date
+  createdAt: string
+  updatedAt: string
+  dueDate?: string
 }
