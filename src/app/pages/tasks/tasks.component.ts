@@ -8,7 +8,7 @@ import { TaskModel } from 'src/app/core/types/task/task.dto';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
-  private allTasks: TaskModel[] = []
+  allTasks: TaskModel[] = []
   constructor (
     private taskService: TaskService
   ) {

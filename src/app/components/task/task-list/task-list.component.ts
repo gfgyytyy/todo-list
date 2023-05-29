@@ -34,6 +34,16 @@ export class TaskListComponent {
       })
   }
 
+  onDone (value: TaskModel) {
+    this.taskService.updateTask(
+      value, 
+      {
+        ...value,
+        progress: 100
+      }
+    )
+  }
+
   onDelete (value: TaskModel) {
     this.dialogService
       .openConfirm(

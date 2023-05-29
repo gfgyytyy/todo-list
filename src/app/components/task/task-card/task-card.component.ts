@@ -18,6 +18,7 @@ export class TaskCardComponent {
 
   @Output() edit = new EventEmitter()
   @Output() delete = new EventEmitter()
+  @Output() done = new EventEmitter()
 
   constructor (
   ) {}
@@ -27,11 +28,28 @@ export class TaskCardComponent {
     return moment(new Date()).diff(this.task.dueDate, 'hour')
   }
 
+  getCardStyle () {
+    let color = ''
+    if(this.hourUntilDue < 24) {
+      color = 'rgba(255,0,0,0.3)'
+    }
+    if(this.task?.progress === 100) {
+      color = 'rgba(0,255,0,0.3)'
+    }
+    return {
+      backgroundColor: color
+    }
+  }
+
   onEdit (value: TaskModel) {
     this.edit.emit(value)
   }
 
   onDelete (value: TaskModel) {
     this.delete.emit(value)
+  }
+
+  onDone (value: TaskModel) {
+    this.done.emit(value)
   }
 }
