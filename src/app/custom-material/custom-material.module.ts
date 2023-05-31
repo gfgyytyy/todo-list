@@ -76,6 +76,7 @@ export const dateFormats = {
     SnackBarComponent,
     MatGridListModule,
     MatSliderModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {

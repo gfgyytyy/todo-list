@@ -41,6 +41,16 @@ export class TaskService {
     const newTasks = [...this.tasks, newTask]
     this.storeTasks(newTasks)
   }
+  
+  finishTask (task: TaskModel) {
+    return this.updateTask(
+      task,
+      {
+        ...task,
+        progress: 100,
+      }
+    )
+  }
 
   updateTask (
     oldValue: TaskModel,

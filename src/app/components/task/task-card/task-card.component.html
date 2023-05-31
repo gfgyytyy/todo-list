@@ -21,21 +21,21 @@
     <button
       *ngIf="task.progress < 100"
       mat-icon-button
-      (click)="onDone(task)"
+      (click)="done.emit(task)"
     >
       <mat-icon>done</mat-icon>
     </button>
     <button
       mat-icon-button
       color="primary"
-      (click)="onEdit(task)"
+      (click)="edit.emit(task)"
     >
       <mat-icon>edit</mat-icon>
     </button>
     <button
       mat-icon-button
       color="warn"
-      (click)="onDelete(task)"
+      (click)="delete.emit(task)"
     >
       <mat-icon>delete</mat-icon>
     </button>

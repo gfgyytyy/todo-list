@@ -1,40 +1,7 @@
-.progress__container {
-  height: 4px;
-}
-
-$headerHeight: 54px;
-$footerHeight: 20px;
-
-.main__container {
-  height: calc(96vh - $headerHeight);
-  overflow: auto;
-  padding: 16px;
-}
-
-.app__container {
-
-}
-
-
-.app__header {
-  height: 54px;
-}
-
-.app_footer {
-  height: 20px;
-  
-}
-
 .app__logo {
   text-decoration: none; 
 }
 
 .app__logo:visited {
   color: inherit;
-}
-
-.app__quick-actions {
-  position: fixed;
-  bottom: 10px; /* Adjust the distance from the bottom as needed */
-  right: 30px; /* Adjust the distance from the right as needed */
 }

@@ -40,16 +40,4 @@ export class TaskCardComponent {
       backgroundColor: color
     }
   }
-
-  onEdit (value: TaskModel) {
-    this.edit.emit(value)
-  }
-
-  onDelete (value: TaskModel) {
-    this.delete.emit(value)
-  }
-
-  onDone (value: TaskModel) {
-    this.done.emit(value)
-  }
 }

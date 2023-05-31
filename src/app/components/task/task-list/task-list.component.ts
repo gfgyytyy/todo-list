@@ -35,13 +35,7 @@ export class TaskListComponent {
   }
 
   onDone (value: TaskModel) {
-    this.taskService.updateTask(
-      value, 
-      {
-        ...value,
-        progress: 100
-      }
-    )
+    this.taskService.finishTask(value)
   }
 
   onDelete (value: TaskModel) {

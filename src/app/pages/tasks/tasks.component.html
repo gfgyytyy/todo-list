@@ -1,3 +1,18 @@
-<app-task-table
-  [tasks]="allTasks"
-/>
+<div class="grid grid-cols-1 gap-3">
+  <div class="flex items-center">
+    <mat-form-field 
+      class="w-full -mb-5 mr-4"
+      appearance="outline"
+    >
+      <input
+        placeholder="search something like name, description..."
+        matInput
+        [formControl]="searchFormControl"
+      />
+    </mat-form-field>
+  </div>
+  <app-task-table
+    [tasks]="tasks"
+  />
+</div>
+

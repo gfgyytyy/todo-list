@@ -16,12 +16,12 @@ export class SidenavListComponent {
   get routes () {
     return [
       {
-        name: 'Tasks',
-        link: '/tasks',
-      },
-      {
         name: 'Dashboard',
         link: '/'
+      },
+      {
+        name: 'Tasks',
+        link: '/tasks',
       },
     ]
   }
