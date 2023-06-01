@@ -15,7 +15,6 @@ import { DialogService } from 'src/app/core/services/dialog/dialog.service';
 export class TaskListComponent {
   @Input() tasks: TaskModel[] = []
   constructor (
-    private notificationService: NotificationService,
     private taskService: TaskService,
     private dialogService: DialogService,
   ) {
@@ -24,13 +23,8 @@ export class TaskListComponent {
   onEdit (value: TaskModel) {
     this.dialogService
       .openTaskForm(value)
-      .subscribe({
-        next: (task) =>{
-          if(task) this.taskService.updateTask(value, task)
-        },
-        error: (error) => {
-          this.notificationService.openErrorSnack(error)
-        }
+      .subscribe((task) =>{
+        if(task) this.taskService.updateTask(value, task)
       })
   }
 
@@ -47,13 +41,8 @@ export class TaskListComponent {
       .pipe(
         filter(e => e)
       )
-      .subscribe({
-        next: () => {
-          this.taskService.deleteTask(value.key)
-        },
-        error: (error) => {
-          this.notificationService.openErrorSnack(error)
-        }
+      .subscribe(() => {
+        this.taskService.deleteTask(value.key)
       })
   }
 }

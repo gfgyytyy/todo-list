@@ -1,8 +1,8 @@
-import { Inject, Injectable } from '@angular/core'
-import { map, Observable, Subject } from 'rxjs'
+import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs'
 import { TaskModel } from '../../types/task/task.dto'
 
-const TASK_STORAGE_KEY = 'tasks'
+export const TASK_STORAGE_KEY = 'tasks'
 
 @Injectable({
   providedIn: 'root',
@@ -15,12 +15,8 @@ export class TaskService {
     this.tasks$.subscribe((value) => {
       this.tasks = value
     })
-    if(item){
-      const tasks = this.parseRawJson(item, [])
-      this.tasks$.next(tasks)
-    }else {
-      this.tasks$.next([])
-    }
+    const tasks = this.parseRawJson(item, [])
+    this.tasks$.next(tasks)
   }
 
   private set tasks (value: TaskModel[]) {
@@ -39,7 +35,7 @@ export class TaskService {
       updatedAt: new Date().toISOString(),
     }
     const newTasks = [...this.tasks, newTask]
-    this.storeTasks(newTasks)
+    return this.storeTasks(newTasks)
   }
   
   finishTask (task: TaskModel) {
@@ -70,7 +66,7 @@ export class TaskService {
       ...updated,
       updatedAt: new Date().toISOString(),
     }
-    this.storeTasks(newTasks)
+    return this.storeTasks(newTasks)
   }
 
   deleteTask (key: string) {
@@ -86,15 +82,17 @@ export class TaskService {
   private storeTasks (tasks: TaskModel[]) {
     localStorage.setItem(TASK_STORAGE_KEY, JSON.stringify(tasks))
     this.tasks$.next(tasks)
+    return tasks
   }
 
   private calculateKey () {
     return Math.floor(Math.random() * 10000000).toString().padStart(8, '0')
   }
 
-  private parseRawJson (raw: string, initValue: {} | []) {
+  private parseRawJson (raw: string | null, initValue: {} | []) {
+    if(raw === null) return initValue
     try {
-      return JSON.parse(raw)
+      return JSON.parse(raw!)
     }catch(error) {
       console.error(error)
     }

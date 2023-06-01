@@ -26,7 +26,10 @@ export class DashboardComponent {
     }[] = []
     groups.push({
       name: 'recent',
-      tasks: this.allTasks.filter(e => moment().diff(e.createdAt, 'hour') < 2),
+      tasks: this.allTasks.filter(e => 
+        moment().diff(e.createdAt, 'hour') < 2 && 
+        e.progress !== 100
+      ),
     })
     groups.push({
       name: 'due at today',

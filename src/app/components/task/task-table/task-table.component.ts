@@ -23,7 +23,6 @@ export class TaskTableComponent implements OnChanges, AfterViewInit {
   constructor (
     private dialogService: DialogService,
     private taskService: TaskService,
-    private notificationService: NotificationService
   ) {
 
   }
@@ -53,13 +52,8 @@ export class TaskTableComponent implements OnChanges, AfterViewInit {
   onEdit (value: TaskModel) {
     this.dialogService
       .openTaskForm(value)
-      .subscribe({
-        next: (task) =>{
-          if(task) this.taskService.updateTask(value, task)
-        },
-        error: (error) => {
-          this.notificationService.openErrorSnack(error)
-        }
+      .subscribe((task) =>{
+        if(task) this.taskService.updateTask(value, task)
       })
   }
 
@@ -76,13 +70,8 @@ export class TaskTableComponent implements OnChanges, AfterViewInit {
       .pipe(
         filter(e => e)
       )
-      .subscribe({
-        next: () => {
-          this.taskService.deleteTask(value.key)
-        },
-        error: (error) => {
-          this.notificationService.openErrorSnack(error)
-        }
+      .subscribe(() => {
+        this.taskService.deleteTask(value.key)
       })
   }
 }

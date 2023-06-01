@@ -1,6 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
+export const displayRoutes = [
+  {
+    name: 'Dashboard',
+    link: '/'
+  },
+  {
+    name: 'Tasks',
+    link: '/tasks',
+  },
+]
 @Component({
   selector: 'app-sidenav-list',
   templateUrl: './sidenav-list.component.html',
@@ -8,21 +18,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SidenavListComponent {
   constructor (
-    private route: ActivatedRoute,
     public router: Router
   ) {
   }
 
   get routes () {
-    return [
-      {
-        name: 'Dashboard',
-        link: '/'
-      },
-      {
-        name: 'Tasks',
-        link: '/tasks',
-      },
-    ]
+    return displayRoutes
   }
 }

@@ -30,6 +30,6 @@
     "strictTemplates": true
   },
   "include": [
-    "src/**/*",
+    "src/**/*", "tsconfig.spec.json",
   ]
 }
