@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-
 import { CustomMaterialModule } from '../custom-material/custom-material.module'
 import { PipesModule } from './pipes/pipes.module';
-
 @NgModule({
   imports: [
     RouterModule,
@@ -14,7 +12,7 @@ import { PipesModule } from './pipes/pipes.module';
   ],
   declarations: [],
   exports: [
-    CustomMaterialModule,
+    CustomMaterialModule, 
     PipesModule,
   ],
 })
