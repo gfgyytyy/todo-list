@@ -11,6 +11,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SidenavListComponent } from './layout/sidenav-list/sidenav-list.component';
 import { RouterModule } from '@angular/router';
 import { TaskFormDialogComponent } from './dialogs/task-form-dialog/task-form-dialog.component';
+import { TaskTableComponent } from './task/task-table/task-table.component';
 
 
 
@@ -23,12 +24,14 @@ import { TaskFormDialogComponent } from './dialogs/task-form-dialog/task-form-di
     LayoutComponent,
     SidenavListComponent,
     TaskFormDialogComponent,
+    TaskTableComponent,
   ],
   exports: [
     TaskCardComponent,
     TaskListComponent,
     LayoutComponent,
     SidenavListComponent,
+    TaskTableComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,6 @@ import { TaskFormDialogComponent } from './dialogs/task-form-dialog/task-form-di
     CustomMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    CustomMaterialModule,
     RouterModule,
   ],
 })

@@ -7,9 +7,9 @@
     <app-sidenav-list />
   </mat-sidenav>
   <!-- Main content -->
-  <mat-sidenav-content>
+  <mat-sidenav-content class="overflow-auto max-h-screen mb-4 min-h-screen">
     <mat-toolbar
-      class="app__header"
+      class="sticky top-0 z-50"
       color="primary"
     >
       <button 
@@ -21,15 +21,11 @@
       <a class="app__logo" routerLink="/">TODO List</a>
     </mat-toolbar>
     
-    <div class="progress__container">
-      <mat-progress-bar mode="indeterminate" *ngIf="spinnerService.visibility$ | async">
-      </mat-progress-bar>
-    </div>
-    <div class="main__container">
+    <div class="p-4">
       <router-outlet></router-outlet>
     </div>
     <div
-      class="app__quick-actions"
+      class="fixed bottom-5 right-5 z-50"
     >
       <button    
         mat-fab

@@ -13,8 +13,6 @@ import { TaskService } from 'src/app/core/services/task/task.service'
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
-  @ViewChild('list') list!: ElementRef
-
   opened = false
 
   constructor (

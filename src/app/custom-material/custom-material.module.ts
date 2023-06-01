@@ -28,12 +28,11 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTableModule } from '@angular/material/table'
 import { MatSortModule } from '@angular/material/sort'
+import { MatSliderModule } from '@angular/material/slider'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { MAT_DATE_FORMATS } from '@angular/material/core'
-import { TableSkeletonComponent } from './skeleton-loader/table-skeleton/table-skeleton.component'
-import { BarSkeletonComponent } from './skeleton-loader/bar-skeleton/bar-skeleton.component'
 import { SnackBarComponent } from './snack-bar/snack-bar.component'
 
 export const dateFormats = {
@@ -59,6 +58,7 @@ export const dateFormats = {
     MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
     MatExpansionModule, DragDropModule, MatSortModule,
     MatGridListModule, MatFormFieldModule, FormsModule, ReactiveFormsModule,
+    MatSliderModule,
   ],
   exports: [
     CommonModule,
@@ -70,9 +70,10 @@ export const dateFormats = {
     MatRadioModule,
     MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
     MatExpansionModule, DragDropModule, MatSortModule,
-    TableSkeletonComponent, BarSkeletonComponent,
     SnackBarComponent,
-    MatGridListModule, 
+    MatGridListModule,
+    ReactiveFormsModule,
+    MatSliderModule,
   ],
   providers: [
     {
@@ -82,8 +83,6 @@ export const dateFormats = {
     { provide: LOCALE_ID, useValue: 'en-gb' },
   ],
   declarations: [ 
-    TableSkeletonComponent, 
-    BarSkeletonComponent,
     SnackBarComponent
   ],
 })

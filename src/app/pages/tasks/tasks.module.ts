@@ -4,6 +4,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TasksComponent } from './tasks.component';
 import { TasksRoutingModule } from './tasks.routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 

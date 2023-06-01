@@ -1,12 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import * as moment from 'moment';
 import { TaskModel } from 'src/app/core/types/task/task.dto';
-import { TaskFormComponent } from '../task-form/task-form.component';
-import { TaskFormDialogComponent, TaskFormDialogModel } from '../../dialogs/task-form-dialog/task-form-dialog.component';
-import { filter } from 'rxjs';
-import { NotificationService } from 'src/app/core/services/notification/notification.service';
-import { TaskService } from 'src/app/core/services/task/task.service';
+
+export const OVER_DUE_TASK_BACKGROUND_COLOR = 'rgba(255,0,0,0.3)'
+export const COMPLETE_TASK_BACKGROUND_COLOR = 'rgba(0,255,0,0.3)'
 
 @Component({
   selector: 'app-task-card',
@@ -18,20 +15,26 @@ export class TaskCardComponent {
 
   @Output() edit = new EventEmitter()
   @Output() delete = new EventEmitter()
+  @Output() done = new EventEmitter()
 
   constructor (
   ) {}
 
-  get hourUntilDue () {
+  get hourFromDue () {
     if(this.task == undefined) return -1
     return moment(new Date()).diff(this.task.dueDate, 'hour')
   }
 
-  onEdit (value: TaskModel) {
-    this.edit.emit(value)
-  }
-
-  onDelete (value: TaskModel) {
-    this.delete.emit(value)
+  get cardStyle () {
+    let color = ''
+    if(this.hourFromDue > 0) {
+      color = OVER_DUE_TASK_BACKGROUND_COLOR
+    }
+    if(this.task?.progress === 100) {
+      color = COMPLETE_TASK_BACKGROUND_COLOR
+    }
+    return {
+      backgroundColor: color
+    }
   }
 }

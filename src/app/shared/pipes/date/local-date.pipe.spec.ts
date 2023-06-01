@@ -1,4 +1,5 @@
 /* global describe, it, expect */
+import * as moment from 'moment'
 import { LocalDatePipe } from './local-date.pipe'
 
 describe('LocalDatePipe', () => {
@@ -8,11 +9,11 @@ describe('LocalDatePipe', () => {
   })
 
   it('returns valid date given utc', () => {
-    const date = new Date('2018-05-04T08:17:57.8979116Z')
+    const date = new Date('2018-05-04T09:17:57.8979116Z')
 
     const pipe = new LocalDatePipe()
     const result = pipe.transform(date, 'DD MMM YYYY HH:mm')
-    expect(result).toBe('04 May 2018 09:17')
+    expect(result).toBe('04 May 2018 17:17')
   })
 
   it('returns empty string when date is null', () => {
@@ -23,11 +24,11 @@ describe('LocalDatePipe', () => {
     expect(result).toBe('')
   })
 
-  it('returns empty string when format is null', () => {
+  it('returns default format string when format is null', () => {
     const date = new Date('2018-05-04T08:17:57.8979116Z')
 
     const pipe = new LocalDatePipe()
-    const result = pipe.transform(date, null)
-    expect(result).toBe('')
+    const result = pipe.transform(date)
+    expect(result).toBe(moment(date).format('YYYY-MM-DD HH:mm:ss'))
   })
 })

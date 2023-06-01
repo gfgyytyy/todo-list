@@ -38,6 +38,25 @@
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <div>
+    <mat-label class="mr-2">progress</mat-label>
+    <button
+      mat-flat-button
+      type="button"
+      color="primary"
+      (click)="form.patchValue({
+        progress: 100
+      })"
+    >
+      job done!
+    </button>
+  </div>
+  <mat-slider 
+    [max]="100"
+    [min]="0"
+  >
+    <input matSliderThumb formControlName="progress" />
+  </mat-slider>
   <ng-content></ng-content>
 </form>
 

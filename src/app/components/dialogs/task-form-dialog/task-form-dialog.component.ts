@@ -16,19 +16,9 @@ export interface TaskFormDialogModel {
 export class TaskFormDialogComponent {
   @ViewChild('taskForm') taskForm?:TaskFormComponent
   constructor (
-    private dialogRef: MatDialogRef<TaskFormDialogComponent>,
+    public dialogRef: MatDialogRef<TaskFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: TaskFormDialogModel
-  ) {
-    this.dialogRef
-      .beforeClosed()
-      .pipe(
-        filter((e) => {
-          console.log(e)
-          return this.taskForm?.form.dirty || false
-        })
-      )
-
-  }
+  ) {}
 
   onSubmit (value?: TaskModel): void {
     this.dialogRef.close(value)

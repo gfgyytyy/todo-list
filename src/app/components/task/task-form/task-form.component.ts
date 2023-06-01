@@ -16,15 +16,15 @@ export class TaskFormComponent implements OnChanges {
       name: new UntypedFormControl('', [Validators.required]),
       title: new UntypedFormControl('', [Validators.required]),
       description: new UntypedFormControl('', [Validators.required]),
-      dueDate: new UntypedFormControl(''),
+      progress: new UntypedFormControl(0),
+      dueDate: new UntypedFormControl(undefined),
     }
     this.form = new FormGroup(control)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     const value = changes['value']
-    console.log(value)
-    if(value) {
+    if(value){
       this.form.patchValue(value.currentValue)
     }
   }
